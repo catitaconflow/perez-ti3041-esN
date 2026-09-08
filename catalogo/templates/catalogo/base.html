@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>{% block title %}Catálogo Ferretería{% endblock %}</title>
     <style>
-        /* Estilo general */
+      
         body {
             font-family: 'Segoe UI', Arial, sans-serif;
             margin: 0;
@@ -13,7 +13,7 @@
             color: #333;
         }
 
-        /* Encabezado */
+       
         header {
             background: linear-gradient(90deg, #004080, #0059b3);
             color: #fff;
@@ -60,7 +60,7 @@
             box-shadow: 0 -2px 6px rgba(0,0,0,0.2);
         }
 
-        /* Tablas */
+  
         table {
             width: 100%;
             border-collapse: collapse;
@@ -90,7 +90,7 @@
             color: #a94442;
         }
 
-        /* Botones genéricos */
+    
         .btn {
             display: inline-block;
             background-color: #004080;
@@ -112,11 +112,7 @@
         <h1>Ferretería Online</h1>
         <nav>
             <a href="{% url 'herramientas' %}">Listado</a>
-            {% if usuario %}
-                <a href="{% url 'logout' %}">Logout</a>
-            {% else %}
-                <a href="{% url 'login' %}">Login</a>
-            {% endif %}
+            <a href="{% url 'login' %}">Login</a>
         </nav>
     </header>
 
