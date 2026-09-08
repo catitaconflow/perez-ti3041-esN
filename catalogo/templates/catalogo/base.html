@@ -4,64 +4,106 @@
     <meta charset="UTF-8">
     <title>{% block title %}Catálogo Ferretería{% endblock %}</title>
     <style>
+        /* Estilo general */
         body {
             font-family: 'Segoe UI', Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f9f9f9;
+            background-color: #eef2f7;
             color: #333;
         }
+
+        /* Encabezado */
         header {
-            background-color: #004080;
+            background: linear-gradient(90deg, #004080, #0059b3);
             color: #fff;
             padding: 15px 30px;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
         }
         header h1 {
             margin: 0;
             font-size: 1.8em;
+            letter-spacing: 1px;
         }
+
+        /* Navegación */
         nav a {
             color: #fff;
             text-decoration: none;
             margin-left: 20px;
             font-weight: bold;
+            padding: 8px 15px;
+            border-radius: 5px;
+            transition: background 0.3s ease;
         }
         nav a:hover {
-            text-decoration: underline;
+            background-color: #ffc107;
+            color: #004080;
         }
+
+        /* Contenido principal */
         main {
-            padding: 20px 40px;
+            padding: 30px 50px;
         }
+
+        /* Pie de página */
         footer {
             background-color: #004080;
             color: #fff;
             text-align: center;
-            padding: 10px;
+            padding: 15px;
             margin-top: 40px;
+            font-size: 0.9em;
+            box-shadow: 0 -2px 6px rgba(0,0,0,0.2);
         }
+
+        /* Tablas */
         table {
             width: 100%;
             border-collapse: collapse;
-            margin-top: 15px;
+            margin-top: 20px;
             background-color: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
         }
         th, td {
             border: 1px solid #ddd;
-            padding: 10px;
+            padding: 12px;
             text-align: left;
         }
         th {
-            background-color: #f0f0f0;
+            background-color: #004080;
+            color: #fff;
         }
         tr:nth-child(even) {
-            background-color: #fafafa;
+            background-color: #f9f9f9;
+        }
+        tr:hover {
+            background-color: #e6f2ff;
         }
         tr[style] {
             font-weight: bold;
             color: #a94442;
+        }
+
+        /* Botones genéricos */
+        .btn {
+            display: inline-block;
+            background-color: #004080;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background 0.3s ease;
+        }
+        .btn:hover {
+            background-color: #ffc107;
+            color: #004080;
         }
     </style>
 </head>
@@ -70,7 +112,11 @@
         <h1>Ferretería Online</h1>
         <nav>
             <a href="{% url 'herramientas' %}">Listado</a>
-            <a href="/admin/">Admin</a>
+            {% if usuario %}
+                <a href="{% url 'logout' %}">Logout</a>
+            {% else %}
+                <a href="{% url 'login' %}">Login</a>
+            {% endif %}
         </nav>
     </header>
 

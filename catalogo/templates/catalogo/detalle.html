@@ -1,15 +1,35 @@
 {% extends "catalogo/base.html" %}
+{% load static %}
+
+{% block title %}Detalle de la herramienta{% endblock %}
 
 {% block content %}
-    <h2>Detalle de la herramienta</h2>
-    <ul>
-        <li><strong>ID:</strong> {{ herramienta.id }}</li>
-        <li><strong>Nombre:</strong> {{ herramienta.nombre }}</li>
-        <li><strong>Categoría:</strong> {{ herramienta.categoria }}</li>
-        <li><strong>Precio:</strong> ${{ herramienta.precio }}</li>
-        <li><strong>Stock:</strong> {{ herramienta.stock }}</li>
-        <li><strong>Marca:</strong> {{ herramienta.marca }}</li>
-    </ul>
-    <img src="{{ herramienta.imagen }}" alt="{{ herramienta.nombre }}" width="200">
-    <p><a href="{% url 'herramientas' %}">Volver al listado</a></p>
+    <div style="max-width: 800px; margin: 30px auto; background-color: #fff; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); padding: 30px;">
+        <h2 style="color: #004080; border-bottom: 3px solid #ffc107; padding-bottom: 10px;">🔧 Detalle de la herramienta</h2>
+
+        <div style="display: flex; align-items: flex-start; gap: 30px; margin-top: 20px;">
+            <img src="{{ herramienta.imagen }}" alt="{{ herramienta.nombre }}" style="width: 250px; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.2);">
+
+            <ul style="list-style: none; padding: 0; font-size: 1.1em;">
+                <li><strong>ID:</strong> {{ herramienta.id }}</li>
+                <li><strong>Nombre:</strong> {{ herramienta.nombre }}</li>
+                <li><strong>Categoría:</strong> {{ herramienta.categoria }}</li>
+                <li><strong>Precio:</strong> <span style="color:#28a745;">${{ herramienta.precio }}</span></li>
+                <li><strong>Stock:</strong>
+                    {% if herramienta.stock > 0 %}
+                        <span style="color:#007bff;">{{ herramienta.stock }} disponibles</span>
+                    {% else %}
+                        <span style="color:#dc3545; font-weight:bold;">Sin stock</span>
+                    {% endif %}
+                </li>
+                <li><strong>Marca:</strong> {{ herramienta.marca }}</li>
+            </ul>
+        </div>
+
+        <div style="text-align:center; margin-top: 30px;">
+            <a href="{% url 'herramientas' %}" style="background-color:#004080; color:#fff; padding:10px 20px; border-radius:5px; text-decoration:none; font-weight:bold;">
+                ← Volver al listado
+            </a>
+        </div>
+    </div>
 {% endblock %}

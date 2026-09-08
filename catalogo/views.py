@@ -27,6 +27,11 @@ def detalle_herramienta(request, id):
     return render(request, "catalogo/detalle.html", {"herramienta": herramienta})
 
 def listado_herramientas(request):
+    usuario = request.session.get("usuario")
+    mensaje = None
+    if usuario:
+        mensaje = "Bienvenido a Ferreteria's"
+
     ruta = Path(__file__).resolve().parent / "data" / "herramientas.json"
     with open(ruta, encoding="utf-8") as f:
         herramientas = json.load(f)
@@ -40,3 +45,24 @@ def listado_herramientas(request):
         "disponibles": disponibles,
     }
     return render(request, "catalogo/lista.html", contexto)
+
+from django.shortcuts import render, redirect
+
+def login_view(request):
+    mensaje = None
+    if request.method == "POST":
+        username = request.POST.get("username")
+        password = request.POST.get("password")
+        if username == "cata" and password == "1234":
+            request.session["usuario"] = username
+            return redirect("herramientas")
+        else:
+            mensaje = "Credenciales inválidas"
+
+    return render(request, "catalogo/login.html", {"mensaje": mensaje})
+
+
+def logout_view(request):
+    # Elimina la sesión del usuario
+    request.session.flush()
+    return redirect("herramientas")  # vuelve al catálogo
