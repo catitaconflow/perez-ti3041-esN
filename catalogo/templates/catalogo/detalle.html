@@ -1,0 +1,11 @@
+{% extends "catalogo/base.html" %}
+
+{% block content %}
+    <h2>Detalle de la herramienta</h2>
+    <p>ID: {{ herramienta.id }}</p>
+    <p>Nombre: {{ herramienta.nombre }}</p>
+    <p>Categoría: {{ herramienta.categoria }}</p>
+    <p>Precio: ${{ herramienta.precio }}</p>
+    <p>Stock: {{ herramienta.stock }}</p>
+    <p>Marca: {{ herramienta.marca }}</p>
+{% endblock %}

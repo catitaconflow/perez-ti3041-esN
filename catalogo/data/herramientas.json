@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "nombre": "Martillo carpintero",
+    "categoria": "Golpe",
+    "precio": 5500,
+    "stock": 20,
+    "marca": "Truper"
+  },
+  {
+    "id": 2,
+    "nombre": "Destornillador plano",
+    "categoria": "Ajuste",
+    "precio": 1200,
+    "stock": 50,
+    "marca": "Stanley"
+  },
+  {
+    "id": 3,
+    "nombre": "Llave inglesa",
+    "categoria": "Ajuste",
+    "precio": 7500,
+    "stock": 15,
+    "marca": "Bahco"
+  },
+  {
+    "id": 4,
+    "nombre": "Taladro eléctrico",
+    "categoria": "Eléctrico",
+    "precio": 45000,
+    "stock": 10,
+    "marca": "Bosch"
+  },
+  {
+    "id": 5,
+    "nombre": "Sierra manual",
+    "categoria": "Corte",
+    "precio": 8000,
+    "stock": 12,
+    "marca": "Irwin"
+  }
+]
