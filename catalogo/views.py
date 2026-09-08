@@ -30,4 +30,13 @@ def listado_herramientas(request):
     ruta = Path(__file__).resolve().parent / "data" / "herramientas.json"
     with open(ruta, encoding="utf-8") as f:
         herramientas = json.load(f)
-    return render(request, "catalogo/lista.html", {"herramientas": herramientas})
+
+    total = len(herramientas)
+    disponibles = sum(1 for h in herramientas if h["stock"] > 0)
+
+    contexto = {
+        "herramientas": herramientas,
+        "total": total,
+        "disponibles": disponibles,
+    }
+    return render(request, "catalogo/lista.html", contexto)

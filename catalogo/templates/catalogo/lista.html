@@ -4,6 +4,10 @@
 
 {% block content %}
     <h2>Listado completo de herramientas</h2>
+
+    <p><strong>Total de registros:</strong> {{ total }}</p>
+    <p><strong>Con stock disponible:</strong> {{ disponibles }}</p>
+
     <table>
         <thead>
             <tr>
@@ -13,17 +17,31 @@
                 <th>Precio</th>
                 <th>Stock</th>
                 <th>Marca</th>
+                <th>Foto</th>
             </tr>
         </thead>
         <tbody>
             {% for herramienta in herramientas %}
-            <tr>
+            <tr {% if herramienta.stock == 0 %} style="background-color:#f8d7da;" {% endif %}>
                 <td>{{ herramienta.id }}</td>
-                <td>{{ herramienta.nombre }}</td>
+                <td>
+                    <a href="{% url 'detalle_herramienta' herramienta.id %}">
+                        {{ herramienta.nombre }}
+                    </a>
+                </td>
                 <td>{{ herramienta.categoria }}</td>
                 <td>${{ herramienta.precio }}</td>
-                <td>{{ herramienta.stock }}</td>
+                <td>
+                    {% if herramienta.stock > 0 %}
+                        {{ herramienta.stock }}
+                    {% else %}
+                        <strong>Sin stock</strong>
+                    {% endif %}
+                </td>
                 <td>{{ herramienta.marca }}</td>
+                <td>
+                    <img src="{{ herramienta.imagen }}" alt="{{ herramienta.nombre }}" width="80">
+                </td>
             </tr>
             {% endfor %}
         </tbody>

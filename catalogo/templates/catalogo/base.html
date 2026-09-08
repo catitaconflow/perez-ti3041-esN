@@ -4,26 +4,83 @@
     <meta charset="UTF-8">
     <title>{% block title %}Catálogo Ferretería{% endblock %}</title>
     <style>
-        body { font-family: Arial, sans-serif; margin: 20px; }
-        header, footer { background: #f4f4f4; padding: 10px; text-align: center; }
-        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
-        th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }
-        th { background: #eee; }
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        header {
+            background-color: #004080;
+            color: #fff;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 1.8em;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin-left: 20px;
+            font-weight: bold;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        main {
+            padding: 20px 40px;
+        }
+        footer {
+            background-color: #004080;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            margin-top: 40px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+            background-color: #fff;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #f0f0f0;
+        }
+        tr:nth-child(even) {
+            background-color: #fafafa;
+        }
+        tr[style] {
+            font-weight: bold;
+            color: #a94442;
+        }
     </style>
 </head>
 <body>
     <header>
         <h1>Ferretería Online</h1>
+        <nav>
+            <a href="{% url 'herramientas' %}">Listado</a>
+            <a href="/admin/">Admin</a>
+        </nav>
     </header>
 
     <main>
         {% block content %}
-    
         {% endblock %}
     </main>
 
     <footer>
-        <p>© 2026 Mi Proyecto Django</p>
+        <p>© 2026 Ferretería Online - Proyecto Django</p>
     </footer>
 </body>
 </html>

@@ -1,42 +1,47 @@
 [
-  {
-    "id": 1,
-    "nombre": "Martillo carpintero",
-    "categoria": "Golpe",
-    "precio": 5500,
-    "stock": 20,
-    "marca": "Truper"
-  },
-  {
-    "id": 2,
-    "nombre": "Destornillador plano",
-    "categoria": "Ajuste",
-    "precio": 1200,
-    "stock": 50,
-    "marca": "Stanley"
-  },
-  {
-    "id": 3,
-    "nombre": "Llave inglesa",
-    "categoria": "Ajuste",
-    "precio": 7500,
-    "stock": 15,
-    "marca": "Bahco"
-  },
-  {
-    "id": 4,
-    "nombre": "Taladro eléctrico",
-    "categoria": "Eléctrico",
-    "precio": 45000,
-    "stock": 10,
-    "marca": "Bosch"
-  },
-  {
-    "id": 5,
-    "nombre": "Sierra manual",
-    "categoria": "Corte",
-    "precio": 8000,
-    "stock": 12,
-    "marca": "Irwin"
-  }
+  { "id": 1, "nombre": "Martillo carpintero", "categoria": "Manual", "precio": 8500, "stock": 25, "marca": "Truper", "imagen": "/static/img/1.webp"},
+  { "id": 2, "nombre": "Martillo de goma", "categoria": "Manual", "precio": 7200, "stock": 18, "marca": "Stanley", "imagen": "/static/img/2.jpg" },
+  { "id": 3, "nombre": "Alicates universales", "categoria": "Manual", "precio": 6900, "stock": 30, "marca": "Bahco" , "imagen": "/static/img/3.webp"},
+  { "id": 4, "nombre": "Alicates punta larga", "categoria": "Manual", "precio": 7500, "stock": 22, "marca": "Irwin" , "imagen": "/static/img/4.jpg"},
+  { "id": 5, "nombre": "Llave inglesa ajustable", "categoria": "Manual", "precio": 9800, "stock": 15, "marca": "Truper", "imagen": "/static/img/5.jpg" },
+  { "id": 6, "nombre": "Llave combinada", "categoria": "Manual", "precio": 5600, "stock": 40, "marca": "Stanley", "imagen": "/static/img/6.jpg" },
+  { "id": 7, "nombre": "Juego de llaves Allen", "categoria": "Manual", "precio": 6200, "stock": 35, "marca": "Bosch" , "imagen": "/static/img/7.jpg"},
+  { "id": 8, "nombre": "Destornillador plano", "categoria": "Manual", "precio": 3500, "stock": 50, "marca": "Irwin" , "imagen": "/static/img/8.png"},
+  { "id": 9, "nombre": "Destornillador Phillips", "categoria": "Manual", "precio": 3600, "stock": 50, "marca": "Irwin" , "imagen": "/static/img/9.jpg"},
+  { "id": 10, "nombre": "Juego destornilladores precisión", "categoria": "Manual", "precio": 8900, "stock": 20, "marca": "Stanley" , "imagen": "/static/img/10.jpg"},
+
+  { "id": 11, "nombre": "Sierra manual", "categoria": "Corte", "precio": 10500, "stock": 12, "marca": "Bahco" , "imagen": "/static/img/11.jpg"},
+  { "id": 12, "nombre": "Sierra para metales", "categoria": "Corte", "precio": 9800, "stock": 18, "marca": "Truper" , "imagen": "/static/img/12.jpg"},
+  { "id": 13, "nombre": "Cutter metálico", "categoria": "Corte", "precio": 4200, "stock": 60, "marca": "Stanley" , "imagen": "/static/img/13.jpg"},
+  { "id": 14, "nombre": "Tijeras hojalatero", "categoria": "Corte", "precio": 8700, "stock": 14, "marca": "Irwin" , "imagen": "/static/img/14.webp"},
+  { "id": 15, "nombre": "Serrucho carpintero", "categoria": "Corte", "precio": 9400, "stock": 20, "marca": "Bahco", "imagen": "/static/img/15.jpg" },
+
+  { "id": 16, "nombre": "Prensa de banco", "categoria": "Sujeción", "precio": 24500, "stock": 1, "marca": "Truper", "imagen": "/static/img/16.jpg" },
+  { "id": 17, "nombre": "Sargento metálico", "categoria": "Sujeción", "precio": 7800, "stock": 25, "marca": "Stanley", "imagen": "/static/img/17.jpg" },
+  { "id": 18, "nombre": "Cinta métrica 5m", "categoria": "Medición", "precio": 5200, "stock": 40, "marca": "Bosch", "imagen": "/static/img/18.jpg" },
+  { "id": 19, "nombre": "Escuadra metálica", "categoria": "Medición", "precio": 4600, "stock": 30, "marca": "Irwin" , "imagen": "/static/img/19.jpg"},
+  { "id": 20, "nombre": "Nivel de burbuja", "categoria": "Medición", "precio": 7800, "stock": 25, "marca": "Stanley", "imagen": "/static/img/20.jpg" },
+  { "id": 21, "nombre": "Calibrador Vernier", "categoria": "Medición", "precio": 12500, "stock": 10, "marca": "Mitutoyo" , "imagen": "/static/img/21.jpg"},
+
+  { "id": 22, "nombre": "Taladro eléctrico", "categoria": "Eléctrica", "precio": 45900, "stock": 12, "marca": "Bosch", "imagen": "/static/img/22.jpg" },
+  { "id": 23, "nombre": "Atornillador eléctrico", "categoria": "Eléctrica", "precio": 38900, "stock": 15, "marca": "Black&Decker", "imagen": "/static/img/23.webp" },
+  { "id": 24, "nombre": "Amoladora angular", "categoria": "Eléctrica", "precio": 52900, "stock": 0, "marca": "Makita", "imagen": "/static/img/24.webp" },
+  { "id": 25, "nombre": "Lijadora orbital", "categoria": "Eléctrica", "precio": 41900, "stock": 8, "marca": "Bosch", "imagen": "/static/img/25.jpg" },
+  { "id": 26, "nombre": "Sierra circular", "categoria": "Eléctrica", "precio": 74900, "stock": 6, "marca": "Makita" , "imagen": "/static/img/26.jpg"},
+  { "id": 27, "nombre": "Sierra caladora", "categoria": "Eléctrica", "precio": 58900, "stock": 9, "marca": "Bosch" , "imagen": "/static/img/27.jpg"},
+  { "id": 28, "nombre": "Pistola de calor", "categoria": "Eléctrica", "precio": 29900, "stock": 14, "marca": "Black&Decker" , "imagen": "/static/img/28.jpg"},
+  { "id": 29, "nombre": "Pistola de silicona", "categoria": "Eléctrica", "precio": 8900, "stock": 25, "marca": "Truper", "imagen": "/static/img/29.webp" },
+
+  { "id": 30, "nombre": "Llave de tubo", "categoria": "Manual", "precio": 11500, "stock": 18, "marca": "Stanley" , "imagen": "/static/img/30.jpg"},
+  { "id": 31, "nombre": "Juego de dados", "categoria": "Manual", "precio": 18900, "stock": 0, "marca": "Bahco", "imagen": "/static/img/32.webp" },
+  { "id": 32, "nombre": "Cortatubos", "categoria": "Manual", "precio": 9900, "stock": 15, "marca": "Irwin" , "imagen": "/static/img/31.jpg"},
+  { "id": 33, "nombre": "Remachadora manual", "categoria": "Manual", "precio": 13900, "stock": 12, "marca": "Truper" , "imagen": "/static/img/33.webp"},
+  { "id": 34, "nombre": "Pistola de pintura", "categoria": "Eléctrica", "precio": 45900, "stock": 7, "marca": "Bosch" , "imagen": "/static/img/34.jpg"},
+  { "id": 35, "nombre": "Multímetro digital", "categoria": "Medición", "precio": 15900, "stock": 20, "marca": "Fluke" , "imagen": "/static/img/35.webp"},
+  { "id": 36, "nombre": "Linterna de trabajo", "categoria": "Iluminación", "precio": 8900, "stock": 30, "marca": "Stanley" , "imagen": "/static/img/36.webp"},
+  { "id": 37, "nombre": "Caja de herramientas portátil", "categoria": "Almacenamiento", "precio": 22900, "stock": 15, "marca": "Truper" , "imagen": "/static/img/37.webp"},
+  { "id": 38, "nombre": "Escalera aluminio 3 peldaños", "categoria": "Accesorios", "precio": 34900, "stock": 10, "marca": "Werner", "imagen": "/static/img/38.webp" },
+  { "id": 39, "nombre": "Guantes de seguridad", "categoria": "Seguridad", "precio": 3900, "stock": 50, "marca": "3M" , "imagen": "/static/img/39.webp"},
+  { "id": 40, "nombre": "Gafas de protección", "categoria": "Seguridad", "precio": 4900, "stock": 40, "marca": "3M" , "imagen": "/static/img/40.webp"}
+
 ]

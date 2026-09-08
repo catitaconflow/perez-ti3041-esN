@@ -2,10 +2,14 @@
 
 {% block content %}
     <h2>Detalle de la herramienta</h2>
-    <p>ID: {{ herramienta.id }}</p>
-    <p>Nombre: {{ herramienta.nombre }}</p>
-    <p>Categoría: {{ herramienta.categoria }}</p>
-    <p>Precio: ${{ herramienta.precio }}</p>
-    <p>Stock: {{ herramienta.stock }}</p>
-    <p>Marca: {{ herramienta.marca }}</p>
+    <ul>
+        <li><strong>ID:</strong> {{ herramienta.id }}</li>
+        <li><strong>Nombre:</strong> {{ herramienta.nombre }}</li>
+        <li><strong>Categoría:</strong> {{ herramienta.categoria }}</li>
+        <li><strong>Precio:</strong> ${{ herramienta.precio }}</li>
+        <li><strong>Stock:</strong> {{ herramienta.stock }}</li>
+        <li><strong>Marca:</strong> {{ herramienta.marca }}</li>
+    </ul>
+    <img src="{{ herramienta.imagen }}" alt="{{ herramienta.nombre }}" width="200">
+    <p><a href="{% url 'herramientas' %}">Volver al listado</a></p>
 {% endblock %}
