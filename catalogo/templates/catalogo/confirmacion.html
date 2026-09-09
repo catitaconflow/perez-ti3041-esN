@@ -1,0 +1,14 @@
+{% extends "catalogo/base.html" %}
+
+{% block title %}Confirmación de Compra{% endblock %}
+
+{% block content %}
+<h2>Resultado de la compra</h2>
+<ul>
+    {% for mensaje in mensajes %}
+        <li>{{ mensaje }}</li>
+    {% endfor %}
+</ul>
+
+<a href="{% url 'herramientas' %}">← Volver al listado</a>
+{% endblock %}

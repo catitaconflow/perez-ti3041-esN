@@ -1,0 +1,36 @@
+{% extends "catalogo/base.html" %}
+
+{% block title %}Carrito de Compras{% endblock %}
+
+{% block content %}
+<h2>Carrito de compras</h2>
+
+{% if items %}
+<table border="1" cellpadding="8">
+    <tr>
+        <th>Producto</th>
+        <th>Cantidad</th>
+        <th>Precio unitario</th>
+        <th>Subtotal</th>
+    </tr>
+    {% for item in items %}
+    <tr>
+        <td>{{ item.herramienta.nombre }}</td>
+        <td>{{ item.cantidad }}</td>
+        <td>${{ item.herramienta.precio|floatformat:0 }}</td>
+        <td>${{ item.herramienta.precio|mul:item.cantidad }}</td>
+
+    </tr>
+    {% endfor %}
+</table>
+
+<p><strong>Total:</strong> ${{ total }}</p>
+
+<a href="{% url 'confirmar_compra' %}"
+   style="background-color:#004080; color:#fff; padding:10px 20px; border-radius:5px; text-decoration:none;">
+   Confirmar compra
+</a>
+{% else %}
+<p>Tu carrito está vacío.</p>
+{% endif %}
+{% endblock %}

@@ -11,7 +11,6 @@
     <table>
         <thead>
             <tr>
-                <th>ID</th>
                 <th>Nombre</th>
                 <th>Categoría</th>
                 <th>Precio</th>
@@ -23,7 +22,7 @@
         <tbody>
             {% for herramienta in herramientas %}
             <tr {% if herramienta.stock == 0 %} style="background-color:#f8d7da;" {% endif %}>
-                <td>{{ herramienta.id }}</td>
+    
                 <td>
                     <a href="{% url 'detalle_herramienta' herramienta.id %}">
                         {{ herramienta.nombre }}

@@ -11,7 +11,6 @@
             <img src="{{ herramienta.imagen }}" alt="{{ herramienta.nombre }}" style="width: 250px; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.2);">
 
             <ul style="list-style: none; padding: 0; font-size: 1.1em;">
-                <li><strong>ID:</strong> {{ herramienta.id }}</li>
                 <li><strong>Nombre:</strong> {{ herramienta.nombre }}</li>
                 <li><strong>Categoría:</strong> {{ herramienta.categoria }}</li>
                 <li><strong>Precio:</strong> <span style="color:#28a745;">${{ herramienta.precio }}</span></li>
@@ -30,6 +29,24 @@
             <a href="{% url 'herramientas' %}" style="background-color:#004080; color:#fff; padding:10px 20px; border-radius:5px; text-decoration:none; font-weight:bold;">
                 ← Volver al listado
             </a>
+
         </div>
+      <form method="post" action="{% url 'agregar_carrito' herramienta.id %}">
+            {% csrf_token %}
+            <label for="cantidad">Cantidad:</label>
+            <input type="number" name="cantidad" id="cantidad" value="1" min="1"
+                style="width:60px; padding:5px; margin-right:10px;">
+
+            <button type="submit"
+                    style="background-color:#28a745; color:#fff; padding:10px 20px; border:none; border-radius:5px; font-weight:bold; cursor:pointer;">
+                🛒 Agregar al carrito
+            </button>
+        </form>
+
+
+        {% if mensaje %}
+            <p style="color:red; font-weight:bold; margin-top:15px;">{{ mensaje }}</p>
+        {% endif %}
+
     </div>
 {% endblock %}
