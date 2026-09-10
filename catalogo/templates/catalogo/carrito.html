@@ -3,33 +3,93 @@
 {% block title %}Carrito de Compras{% endblock %}
 
 {% block content %}
+
 <h2>Carrito de compras</h2>
+<style>
+    table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    font-family: Arial, sans-serif;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+table th {
+    background-color: #004080;
+    color: #fff;
+    text-align: left;
+    padding: 12px;
+    font-weight: bold;
+}
+
+table td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+}
+
+table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+table tr:hover {
+    background-color: #eef5ff;
+}
+
+p strong {
+    font-size: 1.2em;
+    color: #004080;
+}
+
+a {
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+a:hover {
+    transform: scale(1.05);
+    opacity: 0.9;
+}
+
+</style>
 
 {% if items %}
-<table border="1" cellpadding="8">
+<table border="1" cellpadding="8" cellspacing="0">
     <tr>
         <th>Producto</th>
         <th>Cantidad</th>
         <th>Precio unitario</th>
         <th>Subtotal</th>
+        <th>Acciones</th>
     </tr>
     {% for item in items %}
     <tr>
         <td>{{ item.herramienta.nombre }}</td>
         <td>{{ item.cantidad }}</td>
-        <td>${{ item.herramienta.precio|floatformat:0 }}</td>
-        <td>${{ item.herramienta.precio|mul:item.cantidad }}</td>
-
+        <td>${{ item.herramienta.precio }}</td>
+        <td>${{ item.subtotal }}</td>
+        <td>
+            <a href="{% url 'eliminar_del_carrito' item.herramienta.id %}"
+               style="background-color:#dc3545; color:#fff; padding:5px 10px; border-radius:5px; text-decoration:none;">
+               Quitar
+            </a>
+        </td>
     </tr>
     {% endfor %}
 </table>
 
 <p><strong>Total:</strong> ${{ total }}</p>
 
-<a href="{% url 'confirmar_compra' %}"
-   style="background-color:#004080; color:#fff; padding:10px 20px; border-radius:5px; text-decoration:none;">
-   Confirmar compra
-</a>
+<div style="margin-top:15px;">
+    <a href="{% url 'confirmar_compra' %}"
+       style="background-color:#004080; color:#fff; padding:10px 20px; border-radius:5px; text-decoration:none;">
+       Confirmar compra
+    </a>
+
+    <a href="{% url 'cancelar_compra' %}"
+       style="background-color:#dc3545; color:#fff; padding:10px 20px; border-radius:5px; text-decoration:none; margin-left:10px;">
+       Cancelar compra
+    </a>
+</div>
+
 {% else %}
 <p>Tu carrito está vacío.</p>
 {% endif %}

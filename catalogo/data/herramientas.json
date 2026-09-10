@@ -4,7 +4,7 @@
     "nombre": "Martillo carpintero",
     "categoria": "Manual",
     "precio": 8500,
-    "stock": 20,
+    "stock": 16,
     "marca": "Truper",
     "imagen": "/static/img/1.webp"
   },
@@ -13,7 +13,7 @@
     "nombre": "Martillo de goma",
     "categoria": "Manual",
     "precio": 7200,
-    "stock": 15,
+    "stock": 13,
     "marca": "Stanley",
     "imagen": "/static/img/2.jpg"
   },
@@ -22,7 +22,7 @@
     "nombre": "Alicates universales",
     "categoria": "Manual",
     "precio": 6900,
-    "stock": 30,
+    "stock": 29,
     "marca": "Bahco",
     "imagen": "/static/img/3.webp"
   },
@@ -31,7 +31,7 @@
     "nombre": "Alicates punta larga",
     "categoria": "Manual",
     "precio": 7500,
-    "stock": 22,
+    "stock": 20,
     "marca": "Irwin",
     "imagen": "/static/img/4.jpg"
   },
@@ -157,7 +157,7 @@
     "nombre": "Cinta métrica 5m",
     "categoria": "Medición",
     "precio": 5200,
-    "stock": 40,
+    "stock": 39,
     "marca": "Bosch",
     "imagen": "/static/img/18.jpg"
   },

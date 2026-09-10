@@ -3,11 +3,189 @@
 {% block title %}Listado de Herramientas{% endblock %}
 
 {% block content %}
+<div class="lista-header">
     <h2>Listado completo de herramientas</h2>
+    <style>
+        /* Estilo general para la tabla convertida en grid */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 20px;
+}
 
-    <p><strong>Total de registros:</strong> {{ total }}</p>
-    <p><strong>Con stock disponible:</strong> {{ disponibles }}</p>
+/* Ocultar encabezado de tabla (ya no se usa en cards) */
+table thead {
+    display: none;
+}
 
+/* Cada fila será una card */
+table tbody {
+    display: contents; /* permite que los <tr> se comporten como grid items */
+}
+
+table tr {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+/* Estilo para las celdas dentro de la card */
+table td {
+    border: none;
+    padding: 5px;
+}
+
+/* Imagen dentro de la card */
+table img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-top: 10px;
+}
+
+/* Enlace del nombre */
+table a {
+    font-weight: bold;
+    color: #004080;
+    text-decoration: none;
+}
+
+table a:hover {
+    text-decoration: underline;
+}
+
+/* Card resaltada si no hay stock */
+table tr[style] {
+    background-color: #f8d7da !important;
+}
+
+/* ===== ENCABEZADO DEL LISTADO ===== */
+.lista-header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding: 1.5rem 2rem;
+    background: linear-gradient(135deg, #f8faff, #eef2f7);
+    border-radius: 16px;
+    border-left: 6px solid #f4b942;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+}
+
+.lista-header h2 {
+    color: #003c6c;
+    font-size: 1.8rem;
+    font-weight: 800;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.lista-header h2::before {
+    content: "🔧";
+    font-size: 2rem;
+}
+
+.lista-stats {
+    display: flex;
+    gap: 2rem;
+    font-size: 1rem;
+    color: #3d4f62;
+}
+
+.lista-stats span {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: #fff;
+    padding: 0.4rem 1.2rem;
+    border-radius: 50px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    border: 1px solid #e9edf2;
+}
+
+.lista-stats strong {
+    color: #003c6c;
+    font-size: 1.1rem;
+}
+
+.lista-stats .total::before {
+    content: "📊";
+}
+
+.lista-stats .disponibles::before {
+    content: "✅";
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+    .lista-header {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 1rem;
+        padding: 1.2rem;
+        text-align: center;
+    }
+
+    .lista-header h2 {
+        font-size: 1.5rem;
+        justify-content: center;
+    }
+
+    .lista-stats {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 0.8rem;
+    }
+
+    .lista-stats span {
+        padding: 0.3rem 1rem;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .lista-header {
+        padding: 1rem;
+        border-left-width: 4px;
+    }
+
+    .lista-header h2 {
+        font-size: 1.2rem;
+    }
+
+    .lista-stats {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .lista-stats span {
+        width: 100%;
+        justify-content: center;
+        font-size: 0.85rem;
+        padding: 0.3rem 0.8rem;
+    }
+}
+
+    </style>
+    
+
+<div class="lista-stats">
+        <span class="total"><strong>{{ total }}</strong> registros</span>
+        <span class="disponibles"><strong>{{ disponibles }}</strong> con stock</span>
+    </div>
+</div>
     <table>
         <thead>
             <tr>

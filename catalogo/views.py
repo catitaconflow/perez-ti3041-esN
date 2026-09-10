@@ -26,25 +26,6 @@ def detalle_herramienta(request, id):
 
     return render(request, "catalogo/detalle.html", {"herramienta": herramienta})
 
-def listado_herramientas(request):
-    usuario = request.session.get("usuario")
-    mensaje = None
-    if usuario:
-        mensaje = "Bienvenido a Ferreteria's"
-
-    ruta = Path(__file__).resolve().parent / "data" / "herramientas.json"
-    with open(ruta, encoding="utf-8") as f:
-        herramientas = json.load(f)
-
-    total = len(herramientas)
-    disponibles = sum(1 for h in herramientas if h["stock"] > 0)
-
-    contexto = {
-        "herramientas": herramientas,
-        "total": total,
-        "disponibles": disponibles,
-    }
-    return render(request, "catalogo/lista.html", contexto)
 
 from django.shortcuts import render, redirect
 
@@ -77,10 +58,17 @@ def listado_herramientas(request):
     herramientas = cargar_herramientas()
     total = len(herramientas)
     disponibles = sum(1 for h in herramientas if h["stock"] > 0)
+
+    usuario = request.session.get("usuario")  # 🔹 revisar si hay login
+    mensaje = None
+    if usuario:
+        mensaje = f"Bienvenida, {usuario} 🎉"
+
     return render(request, "catalogo/lista.html", {
         "herramientas": herramientas,
         "total": total,
-        "disponibles": disponibles
+        "disponibles": disponibles,
+        "mensaje": mensaje
     })
 
 # Detalle de una herramienta
@@ -149,10 +137,17 @@ def confirmar_compra(request):
 
 def eliminar_del_carrito(request, id):
     carrito = request.session.get("carrito", {})
-    if str(id) in carrito:
-        del carrito[str(id)]
+    id_str = str(id)
+
+    if id_str in carrito:
+        if carrito[id_str] > 1:
+            carrito[id_str] -= 1  # 🔹 resta una unidad
+        else:
+            del carrito[id_str]   # 🔹 elimina el producto si llega a 0
         request.session["carrito"] = carrito
+
     return redirect("ver_carrito")
+
 
 def cancelar_compra(request):
     request.session["carrito"] = {}
